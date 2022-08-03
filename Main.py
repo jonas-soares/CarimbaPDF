@@ -1,9 +1,8 @@
-from funcoes import *
+from funcoes import selecionaArquivos
+from funcoes import tamanhoPagina
 
 a = selecionaArquivos()
-print(a)
 print(a[0])
-print(a[1])
 # a retorna uma tupla e nao uma string. tem que converter para b funcionar
-b = tamanhoPagina(a)
+b = tamanhoPagina(a[0])
 print(b)

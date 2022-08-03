@@ -11,8 +11,12 @@ def selecionaArquivos():
     return(caminhoArquivo)
     
 def tamanhoPagina(arquivo):
+    tamanhoMM = []
     input1 = PdfFileReader(open(arquivo, 'rb'))
-    return(input1.getPage(0).mediaBox)
+    tamanho = (input1.getPage(0).mediaBox)
+    tamanhoMM[0] = tamanho[2]
+    tamanhoMM[1] = tamanho[3]
+    return(tamanhoMM)
 
 def criaPDF(orientacao, formato, texto):
     largura = formato[0]
@@ -39,8 +43,3 @@ def criaCarimbo(input_pdf, output, watermark):
 
     with open(output, 'wb') as out:
         pdf_writer.write(out)
-
-
-
-criaPDF("P", (297,210), "CÓPIA SEM VALIDADE QUANDO IMPRESSA")
-
