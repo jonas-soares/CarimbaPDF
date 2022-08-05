@@ -1,3 +1,4 @@
+from turtle import clear
 from funcoes import selecionaArquivos
 from funcoes import tamanhoPagina
 

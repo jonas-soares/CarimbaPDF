@@ -1,3 +1,4 @@
+from decimal import ROUND_UP
 from struct import pack
 from tkinter import *
 from tkinter import filedialog
@@ -11,11 +12,12 @@ def selecionaArquivos():
     return(caminhoArquivo)
     
 def tamanhoPagina(arquivo):
-    tamanhoMM = []
+    fcorrect =  [0.352751455473502]
+    tamanhoMM = [0,0]
     input1 = PdfFileReader(open(arquivo, 'rb'))
     tamanho = (input1.getPage(0).mediaBox)
-    tamanhoMM[0] = tamanho[2]
-    tamanhoMM[1] = tamanho[3]
+    tamanhoMM[0] = round(float(tamanho[2]) * float(fcorrect[0]))
+    tamanhoMM[1] = round(float(tamanho[3]) * float(fcorrect[0]))
     return(tamanhoMM)
 
 def criaPDF(orientacao, formato, texto):
